@@ -43,7 +43,6 @@ public class Manufacturer {
 
     public void setPhoneNumber(String phoneNumber) {
         phoneNumber = phoneNumber.trim();
-        phoneNumber = phoneNumber.substring(0,1).toUpperCase() + phoneNumber.substring(1);
         if(phoneNumber.length() >= 10 && phoneNumber.length() <= 14)
             this.phoneNumber = phoneNumber;
         else

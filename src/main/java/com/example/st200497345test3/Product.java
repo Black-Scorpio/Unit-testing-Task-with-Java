@@ -16,7 +16,7 @@ public class Product {
         setMsrp(msrp);
         setUnitsInStock(unitsInStock);
     }
-    // coming back to this question
+
     public int sellItem(int items){
         if(unitsInStock > 0)
             unitsInStock = getUnitsInStock() - items;
