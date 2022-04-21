@@ -17,6 +17,12 @@ public class Product {
         setUnitsInStock(unitsInStock);
     }
 
+    /**
+     * Recieves an int argument if the stock is > 0 unitsInStock and unitsSold will be updated.
+     * The method returns the number of units sold
+     * @param items
+     * @return
+     */
     public int sellItem(int items){
         if(items > unitsInStock)
             items = unitsInStock;
@@ -28,14 +34,26 @@ public class Product {
         return items;
     }
 
+    /**
+     * Returns a double representing unitsInStock * msrp
+     * @return
+     */
     public double getStockValue(){
         return getUnitsInStock() * getMsrp();
     }
 
+    /**
+     * Returns a double representing unitsSold * msrp
+     * @return
+     */
     public double getRevenue(){
         return unitsSold * msrp;
     }
 
+    /**
+     * Returns a Product String in the form "sku-name"
+     * @return
+     */
     public String toString(){
         return String.format("%s-%s",getSku(),getName());
     }
@@ -45,6 +63,10 @@ public class Product {
         return sku;
     }
 
+    /**
+     * Sets the sku if it is in the range of 1000-9999 inclusive
+     * @param sku
+     */
     public void setSku(int sku) {
         if(sku >= 1000 && sku <= 9999)
             this.sku = sku;
@@ -57,6 +79,10 @@ public class Product {
         return name;
     }
 
+    /**
+     * Sets the name if it is greater than or equal to 2 in chraacter length
+     * @param name
+     */
     public void setName(String name) {
         name = name.trim();
         if(name.length() >= 2)
@@ -77,6 +103,10 @@ public class Product {
         return msrp;
     }
 
+    /**
+     * sets the Msrp if it is in the range 0-100 inclusive
+     * @param msrp
+     */
     public void setMsrp(double msrp) {
         if(msrp >= 0 && msrp <= 100)
             this.msrp = msrp;
@@ -89,6 +119,10 @@ public class Product {
         return unitsInStock;
     }
 
+    /**
+     * Sets the amount of unitsInStock if the value is greater than 0
+     * @param unitsInStock
+     */
     public void setUnitsInStock(int unitsInStock) {
         if(unitsInStock > 0)
             this.unitsInStock = unitsInStock;

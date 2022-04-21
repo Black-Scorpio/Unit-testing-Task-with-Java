@@ -18,6 +18,10 @@ public class ElectronicProduct extends Product {
         return voltage;
     }
 
+    /**
+     * Sets the voltage if it is either 120,230 or 240
+     * @param voltage
+     */
     public void setVoltage(int voltage) {
         List<Integer> voltages = Arrays.asList(120,230,240);
         if(voltages.contains(voltage))

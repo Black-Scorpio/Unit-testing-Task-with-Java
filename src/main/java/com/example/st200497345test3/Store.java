@@ -31,10 +31,14 @@ public class Store {
         else throw new IllegalArgumentException("The product is already in the inventory");
     }
 
+    /**
+     * Calculates the totalSum of msrp*unitsInStock for every Product in the inventory
+     * @return
+     */
     public double getInventoryMSRP(){
         double totalSum = 0;
         for (Product product: inventory) {
-            totalSum += product.getMsrp();
+            totalSum += product.getMsrp() * product.getUnitsInStock();
         }
         return totalSum;
     }
@@ -43,6 +47,10 @@ public class Store {
         return inventory.size();
     }
 
+    /**
+     * Store toString method in the form of "%s has %s unique products worth $%.2f"
+     * @return
+     */
     public String toString(){
         return String.format("%s has %s unique products worth $%.2f",getStreetAddress(),getNumOfProductsInventory(), getInventoryMSRP());
     }
@@ -51,6 +59,10 @@ public class Store {
         return storeID;
     }
 
+    /**
+     * Sets the storeID to be between 1-200 inclusive
+     * @param storeID
+     */
     public void setStoreID(int storeID) {
         if(storeID >= 1 && storeID <= 200)
             this.storeID = storeID;
@@ -63,6 +75,10 @@ public class Store {
         return streetAddress;
     }
 
+    /**
+     * Sets the streetAddress if it is 2 or more characters in length
+     * @param streetAddress
+     */
     public void setStreetAddress(String streetAddress) {
         streetAddress = streetAddress.trim();
         if(streetAddress.length() >= 5)
@@ -75,6 +91,11 @@ public class Store {
         return city;
     }
 
+    /**
+     * Sets the city if it is one of "Halifax","Fredricton","Charlottetown","Saint John's","Quebec",
+     *                 "Toronto","Winnipeg","Regina","Edmonton","Victoria","Whitehorse","Yellowknife","Iqaluit"
+     * @param city
+     */
     public void setCity(String city) {
         city = city.trim();
         city = city.substring(0,1).toUpperCase() + city.substring(1);
@@ -94,6 +115,10 @@ public class Store {
         return phoneNumber;
     }
 
+    /**
+     * sets the phoneNumber if the length of the phoneNumber is in 10-14 inclusive
+     * @param phoneNumber
+     */
     public void setPhoneNumber(String phoneNumber) {
         phoneNumber = phoneNumber.trim();
         if(phoneNumber.length() >= 10 && phoneNumber.length() <= 14)
