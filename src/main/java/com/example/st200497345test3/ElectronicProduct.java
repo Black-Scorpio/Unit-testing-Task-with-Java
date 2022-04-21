@@ -1,5 +1,8 @@
 package com.example.st200497345test3;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class ElectronicProduct extends Product {
     private int voltage;
     private boolean remote;
@@ -16,7 +19,15 @@ public class ElectronicProduct extends Product {
     }
 
     public void setVoltage(int voltage) {
-        this.voltage = voltage;
+        List<Integer> voltages = Arrays.asList(120,230,240);
+        if(voltages.contains(voltage))
+        {
+            this.voltage = voltage;
+        }
+        else
+        {
+            throw new IllegalArgumentException("The voltage must be 120,230, or 240");
+        }
     }
 
     public boolean isRemote() {
