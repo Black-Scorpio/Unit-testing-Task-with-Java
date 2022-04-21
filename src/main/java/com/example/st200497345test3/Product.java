@@ -18,6 +18,9 @@ public class Product {
     }
 
     public int sellItem(int items){
+        if(items > unitsInStock)
+            items = unitsInStock;
+
         if(unitsInStock > 0)
             unitsInStock = getUnitsInStock() - items;
             unitsSold += items;
